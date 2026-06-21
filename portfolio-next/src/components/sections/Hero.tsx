@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { HeroParticles } from "@/components/ui/HeroParticles";
 
 const EXPO = [0.16, 1, 0.3, 1] as const;
 
@@ -36,6 +37,9 @@ export function Hero() {
   return (
     <section id="hero" className="hero-section theme-dark">
 
+      {/* Particle network background */}
+      <HeroParticles />
+
       {/* Photo */}
       <motion.div
         className="hero-photo-wrap"
@@ -55,7 +59,20 @@ export function Hero() {
 
       {/* Location badge */}
       <motion.div className="hero-location" {...onceIn(0.0)}>
-        <div className="hero-globe" aria-hidden="true" />
+        <svg
+          aria-hidden="true"
+          width="16" height="19"
+          viewBox="0 0 16 19"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          style={{ flexShrink: 0 }}
+        >
+          <path
+            d="M8 0C4.13 0 1 3.13 1 7c0 5.25 7 12 7 12s7-6.75 7-12c0-3.87-3.13-7-7-7z"
+            fill="rgba(255,255,255,0.85)"
+          />
+          <circle cx="8" cy="7" r="2.5" fill="rgba(26,18,16,0.55)" />
+        </svg>
         <span>Located in Pakistan</span>
       </motion.div>
 

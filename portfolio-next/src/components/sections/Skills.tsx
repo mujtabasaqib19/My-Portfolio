@@ -47,25 +47,28 @@ export function Skills() {
                   damping: 20,
                   delay: (i % 3) * 0.07 + pi * 0.035,
                 }}
+                whileHover={{
+                  y: -5,
+                  scale: 1.1,
+                  rotate: -2,
+                  backgroundColor: "#011013",
+                  borderColor: "#011013",
+                  color: "#ffffff",
+                  boxShadow: "0 10px 22px rgba(1,16,19,0.35)",
+                  transition: { type: "spring", stiffness: 420, damping: 14 },
+                }}
+                whileTap={{ scale: 0.94 }}
                 style={{
                   fontSize: "0.82rem",
                   padding: "0.3rem 0.75rem",
                   border: "1px solid rgba(28,29,32,0.22)",
                   borderRadius: "2rem",
+                  background: "transparent",
                   color: "rgba(28,29,32,0.85)",
                   letterSpacing: "0.01em",
-                  cursor: "default",
+                  cursor: "none",
                   display: "inline-block",
-                }}
-                onMouseEnter={(e) => {
-                  const el = e.currentTarget as HTMLElement;
-                  el.style.borderColor = "rgba(28,29,32,0.5)";
-                  el.style.color = "var(--dark)";
-                }}
-                onMouseLeave={(e) => {
-                  const el = e.currentTarget as HTMLElement;
-                  el.style.borderColor = "rgba(28,29,32,0.22)";
-                  el.style.color = "rgba(28,29,32,0.85)";
+                  willChange: "transform",
                 }}
               >
                 {item}

@@ -14,6 +14,7 @@ export function Education() {
         return (
           <div
             key={edu.institution + edu.period}
+            className="edu-item"
             style={{
               display: "grid",
               gridTemplateColumns: "64px 1fr",
@@ -30,6 +31,7 @@ export function Education() {
             >
               {/* Logo — spring pop-in */}
               <motion.div
+                className="edu-logo"
                 initial={{ scale: 0.35, opacity: 0 }}
                 whileInView={{ scale: 1, opacity: 1 }}
                 viewport={{ once: true }}
@@ -43,15 +45,11 @@ export function Education() {
                   width: 56,
                   height: 56,
                   borderRadius: "50%",
-                  border: "1.5px solid rgba(28,29,32,0.12)",
-                  background: "#ffffff",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
                   overflow: "hidden",
                   flexShrink: 0,
-                  boxShadow:
-                    "0 2px 12px rgba(28,29,32,0.08), 0 1px 3px rgba(28,29,32,0.05)",
                 }}
               >
                 {edu.logo ? (
@@ -120,57 +118,59 @@ export function Education() {
                 paddingTop: "0.2rem",
               }}
             >
-              <span
-                style={{
-                  fontFamily: "var(--font-jetbrains-mono, monospace)",
-                  fontSize: "0.62rem",
-                  letterSpacing: "0.12em",
-                  textTransform: "uppercase",
-                  color: "rgba(28,29,32,0.45)",
-                  display: "block",
-                  marginBottom: "0.5rem",
-                }}
-              >
-                {edu.period}
-              </span>
-
-              <p
-                style={{
-                  fontSize: "clamp(1rem, 1.7vw, 1.18rem)",
-                  fontWeight: 600,
-                  letterSpacing: "-0.02em",
-                  color: "var(--dark)",
-                  lineHeight: 1.25,
-                  marginBottom: "0.3rem",
-                }}
-              >
-                {edu.degree}
-              </p>
-
-              <p
-                style={{
-                  fontSize: "0.85rem",
-                  color: "rgba(28,29,32,0.58)",
-                  letterSpacing: "0.01em",
-                  lineHeight: 1.5,
-                }}
-              >
-                {edu.institution}
-              </p>
-
-              {edu.detail && (
-                <p
+              <div className="edu-content-inner">
+                <span
                   style={{
-                    fontSize: "0.8rem",
-                    color: "rgba(28,29,32,0.38)",
-                    marginTop: "0.5rem",
-                    lineHeight: 1.65,
-                    fontStyle: "italic",
+                    fontFamily: "var(--font-jetbrains-mono, monospace)",
+                    fontSize: "0.62rem",
+                    letterSpacing: "0.12em",
+                    textTransform: "uppercase",
+                    color: "rgba(28,29,32,0.72)",
+                    display: "block",
+                    marginBottom: "0.5rem",
                   }}
                 >
-                  {edu.detail}
+                  {edu.period}
+                </span>
+
+                <p
+                  style={{
+                    fontSize: "clamp(1rem, 1.7vw, 1.18rem)",
+                    fontWeight: 600,
+                    letterSpacing: "-0.02em",
+                    color: "var(--dark)",
+                    lineHeight: 1.25,
+                    marginBottom: "0.3rem",
+                  }}
+                >
+                  {edu.degree}
                 </p>
-              )}
+
+                <p
+                  style={{
+                    fontSize: "0.85rem",
+                    color: "rgba(28,29,32,0.85)",
+                    letterSpacing: "0.01em",
+                    lineHeight: 1.5,
+                  }}
+                >
+                  {edu.institution}
+                </p>
+
+                {edu.detail && (
+                  <p
+                    style={{
+                      fontSize: "0.8rem",
+                      color: "rgba(28,29,32,0.72)",
+                      marginTop: "0.5rem",
+                      lineHeight: 1.65,
+                      fontStyle: "italic",
+                    }}
+                  >
+                    {edu.detail}
+                  </p>
+                )}
+              </div>
             </motion.div>
           </div>
         );

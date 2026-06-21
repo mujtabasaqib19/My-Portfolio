@@ -123,6 +123,7 @@ export default function Home() {
               <div style={{ display: "flex", alignItems: "center", gap: "1.5rem", marginBottom: "2.5rem" }}>
                 <motion.p
                   className="ds-h5"
+                  style={{ color: "var(--dark)" }}
                   initial={{ x: -16, opacity: 0 }}
                   whileInView={{ x: 0, opacity: 1 }}
                   viewport={{ once: true, margin: "-5%" }}
@@ -132,7 +133,7 @@ export default function Home() {
                 </motion.p>
                 <motion.div
                   className="stripe"
-                  style={{ flex: 1 }}
+                  style={{ flex: 1, background: "var(--dark)" }}
                   initial={{ scaleX: 0 }}
                   whileInView={{ scaleX: 1 }}
                   viewport={{ once: true, margin: "-5%" }}
@@ -144,11 +145,12 @@ export default function Home() {
           </section>
 
           {/* ── Skills ────────────────────────────────── */}
-          <section style={{ background: "var(--cream)", padding: "0 0 7rem" }}>
+          <section style={{ background: "var(--cream)", color: "var(--dark)", padding: "4rem 0 7rem" }}>
             <div className="ds-container">
               <div style={{ display: "flex", alignItems: "center", gap: "1.5rem", marginBottom: "2.5rem" }}>
                 <motion.p
                   className="ds-h5"
+                  style={{ color: "var(--dark)" }}
                   initial={{ x: -16, opacity: 0 }}
                   whileInView={{ x: 0, opacity: 1 }}
                   viewport={{ once: true, margin: "-5%" }}
@@ -158,7 +160,7 @@ export default function Home() {
                 </motion.p>
                 <motion.div
                   className="stripe"
-                  style={{ flex: 1 }}
+                  style={{ flex: 1, background: "var(--dark)" }}
                   initial={{ scaleX: 0 }}
                   whileInView={{ scaleX: 1 }}
                   viewport={{ once: true, margin: "-5%" }}

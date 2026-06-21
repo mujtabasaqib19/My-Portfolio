@@ -17,11 +17,22 @@ export function Experience() {
         return (
           <motion.div
             key={job.title + job.date}
+            className="exp-card"
             initial={{ x: -30, opacity: 0 }}
             whileInView={{ x: 0, opacity: 1 }}
             viewport={{ once: true, margin: "0px 0px -60px 0px" }}
             transition={{ delay: i * 0.09, duration: 0.62, ease: EXPO }}
-            whileHover={{ y: isOpen ? 0 : -2 }}
+            whileHover={
+              isOpen
+                ? {}
+                : {
+                  y: -6,
+                  scale: 1.012,
+                  boxShadow:
+                    "0 18px 48px rgba(1,16,19,0.16), 0 4px 14px rgba(1,16,19,0.1)",
+                  transition: { type: "spring", stiffness: 320, damping: 22 },
+                }
+            }
             style={{
               marginBottom: "1rem",
               borderRadius: "12px",
@@ -29,7 +40,6 @@ export function Experience() {
               boxShadow: isOpen
                 ? "0 8px 32px rgba(28,29,32,0.12), 0 2px 8px rgba(28,29,32,0.08)"
                 : "0 2px 12px rgba(28,29,32,0.07), 0 1px 3px rgba(28,29,32,0.05)",
-              transition: "box-shadow 0.25s ease",
               overflow: "hidden",
             }}
           >
@@ -38,6 +48,7 @@ export function Experience() {
             <button
               type="button"
               onClick={() => setOpenIdx(isOpen ? -1 : i)}
+              className="exp-row-btn"
               style={{
                 width: "100%",
                 textAlign: "left",
@@ -46,15 +57,10 @@ export function Experience() {
                 cursor: "none",
                 fontFamily: "inherit",
                 color: "inherit",
-                padding: "2rem 2rem",
-                display: "grid",
-                gridTemplateColumns: "200px 1fr auto",
-                gap: "2rem",
-                alignItems: "start",
               }}
             >
               {/* Left — date */}
-              <div>
+              <div className="exp-date">
                 <span
                   style={{
                     fontFamily: "var(--font-jetbrains-mono, monospace)",
@@ -71,16 +77,17 @@ export function Experience() {
               </div>
 
               {/* Center — logo + title + company + tags */}
-              <div>
+              <div className="exp-main">
                 <div style={{ display: "flex", alignItems: "center", gap: "1rem", marginBottom: "0.5rem" }}>
                   {job.logo && (
                     <div
+                      className="exp-logo"
                       style={{
                         width: 36,
                         height: 36,
                         borderRadius: 6,
                         overflow: "hidden",
-                        border: "1px solid rgba(28,29,32,0.1)",
+                        border: "1px solid #031d251a",
                         flexShrink: 0,
                         background: "#fff",
                       }}
@@ -96,6 +103,7 @@ export function Experience() {
                   )}
                   <div>
                     <p
+                      className="exp-title"
                       style={{
                         fontSize: "clamp(1rem, 1.8vw, 1.25rem)",
                         fontWeight: 600,
@@ -145,6 +153,7 @@ export function Experience() {
 
               {/* Right — expand indicator */}
               <div
+                className="exp-toggle"
                 style={{
                   display: "flex",
                   alignItems: "center",
@@ -203,17 +212,8 @@ export function Experience() {
                   transition={{ duration: 0.42, ease: EXPO }}
                   style={{ overflow: "hidden" }}
                 >
-                  <div
-                    style={{
-                      display: "grid",
-                      gridTemplateColumns: "200px 1fr auto",
-                      gap: "2rem",
-                      paddingBottom: "2rem",
-                      paddingLeft: "2rem",
-                      paddingRight: "2rem",
-                    }}
-                  >
-                    <div />
+                  <div className="exp-bullets-grid">
+                    <div className="exp-date" />
                     <ul
                       style={{
                         listStyle: "none",
@@ -253,7 +253,7 @@ export function Experience() {
                         </motion.li>
                       ))}
                     </ul>
-                    <div />
+                    <div className="exp-spacer" />
                   </div>
                 </motion.div>
               )}

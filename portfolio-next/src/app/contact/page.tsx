@@ -57,7 +57,7 @@ function Field({
         style={{
           fontFamily: "var(--font-jetbrains-mono, monospace)",
           fontSize: "0.68rem",
-          opacity: 0.28,
+          opacity: 0.65,
           letterSpacing: "0.06em",
           lineHeight: 1,
           paddingTop: "0.2rem",
@@ -75,7 +75,7 @@ function Field({
             fontSize: "0.68rem",
             textTransform: "uppercase",
             letterSpacing: "0.12em",
-            opacity: 0.38,
+            opacity: 0.72,
             marginBottom: "0.85rem",
             fontFamily: "var(--font-jetbrains-mono, monospace)",
           }}
@@ -193,12 +193,12 @@ export default function Contact() {
               fontSize: "0.68rem",
               textTransform: "uppercase",
               letterSpacing: "0.14em",
-              opacity: 0.38,
+              opacity: 0.75,
               fontFamily: "var(--font-jetbrains-mono, monospace)",
               marginBottom: "2.5rem",
             }}
             initial={{ opacity: 0 }}
-            animate={{ opacity: 0.38 }}
+            animate={{ opacity: 0.75 }}
             transition={{ delay: 0.22, duration: 0.72 }}
           >
             Contact
@@ -258,8 +258,7 @@ export default function Contact() {
             maxWidth: 1380,
             margin: "0 auto",
             display: "grid",
-            gridTemplateColumns: "1fr 340px",
-            gap: "5rem",
+            gap: "clamp(2.5rem, 5vw, 5rem)",
             alignItems: "start",
           }}
           className="contact-cols"
@@ -281,7 +280,7 @@ export default function Contact() {
               >
                 Message sent!
               </h3>
-              <p style={{ opacity: 0.5, fontSize: "1rem", lineHeight: 1.7 }}>
+              <p style={{ opacity: 0.85, fontSize: "1rem", lineHeight: 1.7 }}>
                 Thanks for reaching out. I&apos;ll get back to you within 24 hours.
               </p>
             </motion.div>
@@ -344,7 +343,7 @@ export default function Contact() {
                           border: "1px solid",
                           borderColor: active ? "var(--cream)" : "rgba(255,255,255,0.18)",
                           background: active ? "var(--cream)" : "transparent",
-                          color: active ? "var(--dark)" : "rgba(250,249,246,0.45)",
+                          color: active ? "var(--dark)" : "rgba(250,249,246,0.88)",
                           fontSize: "0.82rem",
                           fontFamily: "inherit",
                           letterSpacing: "0.02em",
@@ -359,7 +358,7 @@ export default function Contact() {
                         onMouseLeave={(e) => {
                           if (!form.services.includes(s)) {
                             (e.currentTarget as HTMLButtonElement).style.borderColor = "rgba(255,255,255,0.18)";
-                            (e.currentTarget as HTMLButtonElement).style.color = "rgba(250,249,246,0.45)";
+                            (e.currentTarget as HTMLButtonElement).style.color = "rgba(250,249,246,0.88)";
                           }
                         }}
                       >
@@ -451,7 +450,7 @@ export default function Contact() {
                   fontSize: "0.65rem",
                   textTransform: "uppercase",
                   letterSpacing: "0.14em",
-                  opacity: 0.35,
+                  opacity: 0.72,
                   fontFamily: "var(--font-jetbrains-mono, monospace)",
                   marginBottom: "1.25rem",
                 }}
@@ -471,7 +470,7 @@ export default function Contact() {
                         fontSize: "0.62rem",
                         textTransform: "uppercase",
                         letterSpacing: "0.1em",
-                        opacity: 0.35,
+                        opacity: 0.68,
                         marginBottom: "0.2rem",
                       }}
                     >
@@ -484,20 +483,20 @@ export default function Contact() {
                           fontSize: "0.9rem",
                           color: "var(--cream)",
                           textDecoration: "none",
-                          opacity: 0.7,
+                          opacity: 0.92,
                           transition: "opacity 0.2s",
                         }}
                         onMouseEnter={(e) =>
                           ((e.currentTarget as HTMLElement).style.opacity = "1")
                         }
                         onMouseLeave={(e) =>
-                          ((e.currentTarget as HTMLElement).style.opacity = "0.7")
+                          ((e.currentTarget as HTMLElement).style.opacity = "0.92")
                         }
                       >
                         {d.value}
                       </a>
                     ) : (
-                      <p style={{ fontSize: "0.9rem", opacity: 0.7 }}>{d.value}</p>
+                      <p style={{ fontSize: "0.9rem", opacity: 0.92 }}>{d.value}</p>
                     )}
                   </div>
                 ))}
@@ -511,7 +510,7 @@ export default function Contact() {
                   fontSize: "0.65rem",
                   textTransform: "uppercase",
                   letterSpacing: "0.14em",
-                  opacity: 0.35,
+                  opacity: 0.72,
                   fontFamily: "var(--font-jetbrains-mono, monospace)",
                   marginBottom: "1.25rem",
                 }}
@@ -537,7 +536,7 @@ export default function Contact() {
                       fontSize: "0.9rem",
                       color: "var(--cream)",
                       textDecoration: "none",
-                      opacity: 0.5,
+                      opacity: 0.88,
                       transition: "opacity 0.2s",
                       display: "flex",
                       alignItems: "center",
@@ -547,7 +546,7 @@ export default function Contact() {
                       ((e.currentTarget as HTMLElement).style.opacity = "1")
                     }
                     onMouseLeave={(e) =>
-                      ((e.currentTarget as HTMLElement).style.opacity = "0.5")
+                      ((e.currentTarget as HTMLElement).style.opacity = "0.88")
                     }
                   >
                     {s.label}
@@ -564,7 +563,7 @@ export default function Contact() {
                   fontSize: "0.65rem",
                   textTransform: "uppercase",
                   letterSpacing: "0.14em",
-                  opacity: 0.35,
+                  opacity: 0.72,
                   fontFamily: "var(--font-jetbrains-mono, monospace)",
                   marginBottom: "0.5rem",
                 }}
@@ -574,7 +573,7 @@ export default function Contact() {
               <p
                 style={{
                   fontSize: "0.9rem",
-                  opacity: 0.5,
+                  opacity: 0.88,
                   fontFamily: "var(--font-jetbrains-mono, monospace)",
                 }}
               >
@@ -599,7 +598,7 @@ export default function Contact() {
           <p
             style={{
               fontSize: "0.78rem",
-              opacity: 0.35,
+              opacity: 0.72,
               letterSpacing: "0.01em",
             }}
           >
@@ -608,7 +607,7 @@ export default function Contact() {
           <p
             style={{
               fontSize: "0.78rem",
-              opacity: 0.35,
+              opacity: 0.72,
               letterSpacing: "0.01em",
             }}
           >

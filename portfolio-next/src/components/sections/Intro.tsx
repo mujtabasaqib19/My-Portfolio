@@ -35,7 +35,7 @@ export function Intro() {
       <div
         style={{
           height: "4rem",
-          background: "#1C1D20",
+          background: "var(--dark)",
           borderRadius: "0 0 3rem 3rem",
           marginTop: "-4rem",
           marginBottom: "6rem",
@@ -56,7 +56,6 @@ export function Intro() {
               borderRadius: "0.75rem",
               overflow: "hidden",
               width: "100%",
-              maxHeight: "600px",
             }}
           >
             <Image
@@ -75,9 +74,8 @@ export function Intro() {
               display: "flex",
               flexDirection: "column",
               alignItems: "flex-start",
-              justifyContent: "center",
+              justifyContent: "flex-start",
               gap: "2rem",
-              paddingTop: "1rem",
             }}
           >
             <h4 className="ds-h4" style={{ lineHeight: 1.3 }}>
@@ -97,7 +95,7 @@ export function Intro() {
 
             <motion.p
               className="ds-p"
-              style={{ opacity: 0.65, maxWidth: "38ch" }}
+              style={{ opacity: 0.88, maxWidth: "38ch" }}
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 0.65, y: 0 }}
               viewport={{ once: true, margin: "-8%" }}

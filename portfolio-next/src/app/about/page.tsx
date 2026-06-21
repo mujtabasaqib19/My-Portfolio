@@ -260,7 +260,7 @@ export default function About() {
               {/* Left — bio text */}
               <div>
                 <LineReveal delay={0.06}>
-                  <p className="ds-p" style={{ opacity: 0.65 }}>
+                  <p className="ds-p" style={{ opacity: 0.88 }}>
                     I am Mujtaba Saqib. A Data Scientist and Engineer
                     with deep interest about building scalable data systems and
                     intelligent applications that solve real problems.
@@ -326,9 +326,9 @@ export default function About() {
         <section className="theme-light" style={{ padding: "3rem 0", borderTop: "1px solid rgba(28,29,32,0.08)" }}>
           <div className="ds-container">
             <div
+              className="about-stats-grid"
               style={{
                 display: "grid",
-                gridTemplateColumns: "repeat(3, 1fr)",
                 gap: "2rem",
                 textAlign: "center",
               }}
@@ -357,7 +357,7 @@ export default function About() {
                       fontSize: "0.68rem",
                       textTransform: "uppercase",
                       letterSpacing: "0.14em",
-                      opacity: 0.4,
+                      opacity: 0.7,
                       marginTop: "0.75rem",
                       color: "var(--dark)",
                     }}
@@ -446,9 +446,9 @@ export default function About() {
         </section>
 
         {/* ══════════════════════════════════════════════════
-            08  ROLLING STRIP (light)
+            08  ROLLING STRIP
         ══════════════════════════════════════════════════ */}
-        <RollingStrip dark={false} />
+        <RollingStrip dark />
 
         {/* ══════════════════════════════════════════════════
             09  EDUCATION
