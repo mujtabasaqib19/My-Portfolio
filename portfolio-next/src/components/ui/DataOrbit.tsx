@@ -115,6 +115,7 @@ export function DataOrbit() {
     const byId    = new Map<string, OrbNode>(nodes.map((n) => [n.id, n]));
 
     function resize() {
+      if (!el || !ctx) return;
       const parent = el.parentElement;
       if (!parent) return;
       const dpr  = Math.min(window.devicePixelRatio || 1, 2);
@@ -131,6 +132,7 @@ export function DataOrbit() {
     let tick = 0;
 
     function draw(ts: number) {
+      if (!el || !ctx) return;
       rafRef.current = requestAnimationFrame(draw);
       const dt = Math.min((ts - lastRef.current) / 1000, 0.05);
       lastRef.current = ts;
