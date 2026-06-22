@@ -95,9 +95,9 @@ export function Hero() {
       <motion.div className="big-name" {...onceIn(0.34)}>
         <div ref={marqueeRef} className="marquee-track">
           {[0, 1, 2, 3].map((i) => (
-            <h1 key={i} className="ds-h1">
+            <h1 key={i} className="ds-h1" style={{ paddingBottom: "0.2em" }}>
               Mujtaba Saqib
-              <span style={{ opacity: 0.18, margin: "0 0.4em" }}>—</span>
+              <span style={{ opacity: 0.18, margin: "0 0.4em"}}>—</span>
             </h1>
           ))}
         </div>
