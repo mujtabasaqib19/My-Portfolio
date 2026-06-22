@@ -160,7 +160,7 @@ export function ContactFooter() {
           <div style={{ display: "flex", gap: "3rem", flexWrap: "wrap" }}>
             <div>
               <p className="footer-meta-label">Version</p>
-              <p className="footer-meta-value">2024 © Edition</p>
+              <p className="footer-meta-value">2026 © Edition</p>
             </div>
             <div>
               <p className="footer-meta-label">Local time</p>
