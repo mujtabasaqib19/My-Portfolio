@@ -54,7 +54,6 @@ export function Experience() {
                 textAlign: "left",
                 background: "none",
                 border: "none",
-                cursor: "none",
                 fontFamily: "inherit",
                 color: "inherit",
               }}

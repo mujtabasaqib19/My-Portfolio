@@ -58,9 +58,16 @@ export function HeroParticles() {
     let signals: Signal[]   = [];
     let nodeScale = 1;        // shrinks nodes / labels on small canvases
     let layerSizes: number[] = LAYERS_WIDE;
+    /* In-flight per-layer wave timers — a resize rebuilds `neurons`
+       with a different layer count, so any pending wave must be
+       cancelled or it will index into a now-shorter array. */
+    let waveTimers: ReturnType<typeof setTimeout>[] = [];
 
     /* ── Layout ─────────────────────────────────────────────── */
     function build() {
+      /* Cancel any wave still firing against the previous topology */
+      for (const id of waveTimers) clearTimeout(id);
+      waveTimers = [];
       neurons = [];
       edges   = [];
       signals = [];
@@ -106,14 +113,20 @@ export function HeroParticles() {
       for (let li = 0; li < neurons.length; li++) {
         const delay = li * LAYER_DELAY;
 
-        setTimeout(() => {
+        const id = setTimeout(() => {
+          /* A rebuild may have shrunk the network since we scheduled
+             this — bail if this layer (or the next) no longer exists. */
+          const layer = neurons[li];
+          if (!layer) return;
+
           /* Activate all neurons in this layer */
-          for (const n of neurons[li]) n.act = 1.0;
+          for (const n of layer) n.act = 1.0;
 
           /* Send signals along outgoing edges to next layer */
-          if (li < neurons.length - 1) {
+          const next = neurons[li + 1];
+          if (next) {
             const outEdges = edges.filter(
-              (e) => neurons[li].includes(e.a) && neurons[li + 1].includes(e.b),
+              (e) => layer.includes(e.a) && next.includes(e.b),
             );
             /* Only a fraction of edges carry a visible signal */
             const active = outEdges.filter(() => Math.random() < SIGNAL_FRAC);
@@ -123,6 +136,7 @@ export function HeroParticles() {
             }
           }
         }, delay);
+        waveTimers.push(id);
       }
     }
 
@@ -294,6 +308,7 @@ export function HeroParticles() {
     return () => {
       cancelAnimationFrame(rafRef.current);
       clearTimeout(firstFire);
+      for (const id of waveTimers) clearTimeout(id);
       window.removeEventListener("resize", resize);
       if (ro) ro.disconnect();
     };

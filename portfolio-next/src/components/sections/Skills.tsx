@@ -58,6 +58,7 @@ export function Skills() {
                   transition: { type: "spring", stiffness: 420, damping: 14 },
                 }}
                 whileTap={{ scale: 0.94 }}
+                className="skill-tag"
                 style={{
                   fontSize: "0.82rem",
                   padding: "0.3rem 0.75rem",
@@ -66,7 +67,6 @@ export function Skills() {
                   background: "transparent",
                   color: "rgba(28,29,32,0.85)",
                   letterSpacing: "0.01em",
-                  cursor: "none",
                   display: "inline-block",
                   willChange: "transform",
                 }}

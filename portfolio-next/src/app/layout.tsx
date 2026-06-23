@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Plus_Jakarta_Sans, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
@@ -15,6 +15,14 @@ const jetbrainsMono = JetBrains_Mono({
   weight: ["400", "500", "700"],
   display: "swap",
 });
+
+export const viewport: Viewport = {
+  // width=device-width, initial-scale=1 are applied by Next's default;
+  // we keep pinch-zoom enabled for accessibility and just colour the
+  // mobile browser chrome to match the dark site.
+  themeColor: "#011013",
+  colorScheme: "dark",
+};
 
 export const metadata: Metadata = {
   title: "Mujtaba Saqib — Data Engineer & AI Specialist",
@@ -35,6 +43,7 @@ export default function RootLayout({
     <html
       lang="en"
       className={`${plusJakartaSans.variable} ${jetbrainsMono.variable}`}
+      data-scroll-behavior="smooth"
       suppressHydrationWarning
     >
       <body suppressHydrationWarning>{children}</body>

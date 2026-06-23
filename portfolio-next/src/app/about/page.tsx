@@ -414,8 +414,7 @@ export default function About() {
                   <motion.p
                     className="about-service-desc"
                     initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    viewport={{ once: true }}
+                    animate={{ opacity: 1 }}
                     transition={{ delay: i * 0.11 + 0.26, duration: 0.52 }}
                   >
                     {service.desc}

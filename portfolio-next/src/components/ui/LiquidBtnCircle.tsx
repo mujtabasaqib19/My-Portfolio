@@ -63,7 +63,6 @@ export function LiquidBtnCircle({
         textDecoration: "none",
         overflow: "hidden",
         flexShrink: 0,
-        cursor: "none",
         ...extraStyle,
       }}
     >
